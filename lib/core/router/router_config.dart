@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lotura/view/main/main_page.dart';
+import 'package:lotura/view/notice/notice_detail_page.dart';
 import 'package:lotura/view/notice/notice_page.dart';
 import 'package:lotura/view/setting/setting_page.dart';
 import 'package:lotura/view/splash/splash_page.dart';
@@ -11,6 +12,7 @@ enum LoturaRoute {
   splash('/splash'),
   main('/main'),
   notice('/notice'),
+  noticeDetail('/noticeDetail'),
   setting('/setting');
 
   const LoturaRoute(this.path);
@@ -35,6 +37,11 @@ final GoRouter routerConfig = GoRouter(
       path: LoturaRoute.notice.path,
       name: LoturaRoute.notice.name,
       builder: (context, state) => NoticePage(),
+    ),
+    GoRoute(
+      path: LoturaRoute.noticeDetail.path,
+      name: LoturaRoute.noticeDetail.name,
+      builder: (context, state) => NoticeDetailPage(),
     ),
     GoRoute(
       path: LoturaRoute.setting.path,

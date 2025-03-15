@@ -8,6 +8,10 @@ Future<void> pushNoticePage(BuildContext context) async {
   return await context.pushNamed<void>(LoturaRoute.notice.name);
 }
 
+Future<void> pushNoticeDetailPage(BuildContext context) async {
+  return await context.pushNamed<void>(LoturaRoute.noticeDetail.name);
+}
+
 Future<void> pushSettingPage(BuildContext context) async {
   return await context.pushNamed<void>(LoturaRoute.setting.name);
 }
