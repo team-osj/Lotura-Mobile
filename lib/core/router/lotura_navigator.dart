@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:lotura/core/router/router_config.dart';
+part of 'router_config.dart';
 
 void goMainPage(BuildContext context) async {
   return context.goNamed(LoturaRoute.main.name);
@@ -8,4 +6,8 @@ void goMainPage(BuildContext context) async {
 
 Future<void> pushNoticePage(BuildContext context) async {
   return await context.pushNamed<void>(LoturaRoute.notice.name);
+}
+
+Future<void> pushSettingPage(BuildContext context) async {
+  return await context.pushNamed<void>(LoturaRoute.setting.name);
 }
