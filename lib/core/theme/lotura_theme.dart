@@ -18,7 +18,7 @@ class LoturaTheme {
       tertiary: LoturaLightColor.tertiary, /// 제 3자 색상 - 구성요소에 사용할 색상
       onTertiary: LoturaLightColor.onTertiary, /// 제 3자 색상 - 바탕에 사용할 색상
       inverseSurface: LoturaCoreColor.black, /// 바탕과 대비되는 색
-      surface: LoturaCoreColor.surface, /// 바탕색
+      surface: LoturaLightColor.surface, /// 바탕색
       onSurface: LoturaCoreColor.white, /// 바탕 위 구성요소에 사용할 색
       surfaceContainerHigh: LoturaLightColor.surfaceContainerHigh, /// 페이지에서 강조되어야하는 구성요소에 사용되는 색상
       surfaceContainerHighest: LoturaLightColor.surfaceContainerHighest, /// 페이지에서 더 강조되어야하는 구성요소에 사용되는 색상
@@ -45,7 +45,7 @@ class LoturaTheme {
       tertiary: LoturaDarkColor.tertiary, /// 제 3자 색상 - 구성요소에 사용할 색상
       onTertiary: LoturaDarkColor.onTertiary, /// 제 3자 색상 - 바탕에 사용할 색상
       inverseSurface: LoturaCoreColor.white, /// 바탕과 대비되는 색
-      surface: LoturaCoreColor.surface, /// 바탕색
+      surface: LoturaDarkColor.surface, /// 바탕색
       onSurface: LoturaCoreColor.black, /// 바탕 위 구성요소에 사용할 색
       surfaceContainerHigh: LoturaDarkColor.surfaceContainerHigh, /// 페이지에서 강조되어야하는 구성요소에 사용되는 색상
       surfaceContainerHighest: LoturaDarkColor.surfaceContainerHighest, /// 페이지에서 더 강조되어야하는 구성요소에 사용되는 색상
