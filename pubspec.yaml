@@ -31,7 +31,12 @@ dependencies:
   # Local DB
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+
+  # Icon
   material_symbols_icons: ^4.2808.1
+
+  # Url Launcher
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +56,7 @@ flutter:
     - assets/image/banner/
     - assets/image/device/
     - assets/image/logo/
+    - assets/icon/
 
   fonts:
     - family: Pretendard
