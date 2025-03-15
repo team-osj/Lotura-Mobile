@@ -5,8 +5,6 @@ part '../theme/lotura_theme.dart';
 abstract final class LoturaCoreColor {
   LoturaCoreColor._();
 
-  static const Color surface = Color(0xFFFFFFFF);
-
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color transparent = Color(0x00000000);
@@ -14,6 +12,8 @@ abstract final class LoturaCoreColor {
 
 abstract final class LoturaLightColor {
   LoturaLightColor._();
+
+  static const Color surface = Color(0xFFFFFFFF);
 
   static const Color primaryContainer = Color(0xFFF3FAFF);
   static const Color main100 = Color(0xFFB3DFFF);
@@ -46,6 +46,8 @@ abstract final class LoturaLightColor {
 
 abstract final class LoturaDarkColor {
   LoturaDarkColor._();
+
+  static const Color surface = Color(0xFF242424);
 
   static const Color primaryContainer = Color(0xFF2D2E3F);
   static const Color main100 = Color(0xFF3A3D64);
