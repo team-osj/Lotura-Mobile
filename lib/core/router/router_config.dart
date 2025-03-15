@@ -21,7 +21,7 @@ enum LoturaRoute {
 }
 
 final GoRouter routerConfig = GoRouter(
-  initialLocation: LoturaRoute.main.path,
+  initialLocation: LoturaRoute.splash.path,
   routes: [
     GoRoute(
       path: LoturaRoute.splash.path,
