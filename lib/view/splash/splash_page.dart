@@ -15,7 +15,11 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(milliseconds: 1100)).then((value) => goMainPage(context));
+      Future.delayed(const Duration(milliseconds: 1100)).then((value) {
+        if (mounted) {
+          goMainPage(context);
+        }
+      });
     });
   }
 
