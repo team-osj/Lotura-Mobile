@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return LoturaLayout(
+    return const LoturaLayout(
       appBar: _ViewOptionAppBar(),
       body: SafeArea(
         child: _PageView(),
@@ -39,8 +39,8 @@ class _PageView extends ConsumerWidget {
     return PageView(
       controller: viewOption.controller,
       children: [
-        LaundryApplyTabScreen(),
-        LaundryStatusTabScreen(),
+        const LaundryApplyTabScreen(),
+        const LaundryStatusTabScreen(),
       ],
     );
   }

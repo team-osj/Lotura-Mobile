@@ -35,7 +35,7 @@ class LoturaBottomSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 4),
-              _RemoveSheetIcon(),
+              const _RemoveSheetIcon(),
               const SizedBox(height: 20),
               _SheetDescription(title: title, caption: caption),
               const SizedBox(height: 20),

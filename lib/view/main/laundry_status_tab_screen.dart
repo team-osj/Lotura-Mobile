@@ -17,18 +17,18 @@ class LaundryStatusTabScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final roomLocateAsyncValue = ref.watch(roomManagerProvider);
     return roomLocateAsyncValue.when(
-      data: (data) => LoturaScrollWidget(
+      data: (data) => const LoturaScrollWidget(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 28),
+              SizedBox(height: 28),
               _RoomLocateTitle(),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               _RoomSelectRadioRow(),
-              const SizedBox(height: 28),
+              SizedBox(height: 28),
               _DeviceStatusWidget(
                 status: DeviceStatusType.available,
                 type: DeviceType.washer,
@@ -37,8 +37,8 @@ class LaundryStatusTabScreen extends ConsumerWidget {
           ),
         ),
       ),
-      error: (_, __) => LoturaNetworkErrorWidget(),
-      loading: () => LoturaLoadingIndicator(),
+      error: (_, __) => const LoturaNetworkErrorWidget(),
+      loading: () => const LoturaLoadingIndicator(),
     );
   }
 }

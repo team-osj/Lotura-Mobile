@@ -13,7 +13,7 @@ class NoticeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoturaLayout(
       appBar: LoturaAppBar.pop(context: context),
-      body: SafeArea(
+      body: const SafeArea(
         child: _NoticePageScreen(),
       ),
     );

@@ -24,7 +24,7 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoturaLayout(
       appBar: LoturaAppBar.title(context: context, text: '설정'),
-      body: SafeArea(
+      body: const SafeArea(
         child: _SettingScreen(),
       ),
     );
@@ -45,7 +45,7 @@ class _SettingScreen extends ConsumerWidget {
           onTap: () => showModalBottomSheet(
             context: context,
             backgroundColor: Theme.of(context).colorScheme.onSurface,
-            builder: (context) => _LocateSettingBottomSheet(),
+            builder: (context) => const _LocateSettingBottomSheet(),
           ),
           caption: '메인 세탁실 설정',
           action: locateAsyncValue.when(
@@ -55,8 +55,8 @@ class _SettingScreen extends ConsumerWidget {
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
-            error: (_, __) => LoturaErrorIcon(),
-            loading: () => LoturaLoadingIndicator(),
+            error: (_, __) => const LoturaErrorIcon(),
+            loading: () => const LoturaLoadingIndicator(),
           ),
         ),
         /*const SizedBox(height: 12),
@@ -69,7 +69,7 @@ class _SettingScreen extends ConsumerWidget {
           onTap: () => showModalBottomSheet(
             context: context,
             backgroundColor: Theme.of(context).colorScheme.onSurface,
-            builder: (context) => _ModeSettingBottomSheet(),
+            builder: (context) => const _ModeSettingBottomSheet(),
           ),
           caption: '모드 설정',
           action: themeAsyncValue.when(
@@ -79,8 +79,8 @@ class _SettingScreen extends ConsumerWidget {
               color: Theme.of(context).colorScheme.primary,
               size: 24,
             ),
-            error: (_, __) => LoturaErrorIcon(),
-            loading: () => LoturaLoadingIndicator(),
+            error: (_, __) => const LoturaErrorIcon(),
+            loading: () => const LoturaLoadingIndicator(),
           ),
         ),
         const SizedBox(height: 12),
@@ -165,8 +165,8 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
               )
               .toList(),
         ),
-        error: (_, __) => LoturaErrorIcon(height: 144),
-        loading: () => LoturaLoadingIndicator(height: 144),
+        error: (_, __) => const LoturaErrorIcon(height: 144),
+        loading: () => const LoturaLoadingIndicator(height: 144),
       ),
     );
   }
@@ -208,8 +208,8 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
               )
               .toList(),
         ),
-        error: (_, __) => LoturaErrorIcon(height: 144),
-        loading: () => LoturaLoadingIndicator(height: 144),
+        error: (_, __) => const LoturaErrorIcon(height: 144),
+        loading: () => const LoturaLoadingIndicator(height: 144),
       ),
     );
   }

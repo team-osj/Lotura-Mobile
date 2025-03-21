@@ -12,7 +12,7 @@ class NoticePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoturaLayout(
       appBar: LoturaAppBar.title(context: context, text: '공지사항'),
-      body: SafeArea(
+      body: const SafeArea(
         child: _NoticeScreen(),
       ),
     );
@@ -38,7 +38,7 @@ class _NoticeScreen extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 3,
             itemBuilder: (context, index) {
-              return _NoticeItemWidget();
+              return const _NoticeItemWidget();
             },
             separatorBuilder: (context, index) {
               return const SizedBox(height: 4);

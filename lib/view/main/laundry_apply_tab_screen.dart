@@ -7,13 +7,13 @@ class LaundryApplyTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoturaScrollWidget(
+    return const LoturaScrollWidget(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 28),
+            SizedBox(height: 28),
             _Title(),
           ],
         ),

@@ -16,7 +16,7 @@ class LoturaLoadingIndicator extends StatelessWidget {
       height: height,
       width: width,
       alignment: Alignment.center,
-      child: CupertinoActivityIndicator(),
+      child: const CupertinoActivityIndicator(),
     );
   }
 }

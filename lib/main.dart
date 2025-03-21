@@ -6,7 +6,7 @@ import 'package:lotura/provider/theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: MyApp(),
     ),
   );

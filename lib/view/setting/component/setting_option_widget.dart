@@ -40,7 +40,7 @@ class SettingOptionWidget extends StatelessWidget {
                   Symbols.chevron_right_rounded,
                   color: Theme.of(context).colorScheme.surfaceTint,
                   size: 24,
-                )
+                ),
               ],
             ),
           ],

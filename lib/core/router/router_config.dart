@@ -26,27 +26,27 @@ final GoRouter routerConfig = GoRouter(
     GoRoute(
       path: LoturaRoute.splash.path,
       name: LoturaRoute.splash.name,
-      builder: (context, state) => SplashPage(),
+      builder: (context, state) => const SplashPage(),
     ),
     GoRoute(
       path: LoturaRoute.main.path,
       name: LoturaRoute.main.name,
-      builder: (context, state) => MainPage(),
+      builder: (context, state) => const MainPage(),
     ),
     GoRoute(
       path: LoturaRoute.notice.path,
       name: LoturaRoute.notice.name,
-      builder: (context, state) => NoticePage(),
+      builder: (context, state) => const NoticePage(),
     ),
     GoRoute(
       path: LoturaRoute.noticeDetail.path,
       name: LoturaRoute.noticeDetail.name,
-      builder: (context, state) => NoticeDetailPage(),
+      builder: (context, state) => const NoticeDetailPage(),
     ),
     GoRoute(
       path: LoturaRoute.setting.path,
       name: LoturaRoute.setting.name,
-      builder: (context, state) => SettingPage(),
+      builder: (context, state) => const SettingPage(),
     ),
   ],
 );
