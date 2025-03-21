@@ -1,4 +1,4 @@
-part of '../constants/lotura_color.dart';
+part of 'color.dart';
 
 class LoturaTheme {
   LoturaTheme._();
