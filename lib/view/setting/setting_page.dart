@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lotura/core/component/lotura_app_bar.dart';
 import 'package:lotura/core/component/lotura_bottom_sheet.dart';
 import 'package:lotura/core/component/lotura_error_icon.dart';
@@ -9,6 +10,7 @@ import 'package:lotura/core/core.dart';
 import 'package:lotura/core/layout/lotura_layout.dart';
 import 'package:lotura/core/type/locate_type.dart';
 import 'package:lotura/core/type/theme_type.dart';
+import 'package:lotura/core/utils/toast.dart';
 import 'package:lotura/provider/locate.dart';
 import 'package:lotura/provider/theme.dart';
 import 'package:lotura/view/setting/component/setting_option_widget.dart';
@@ -93,6 +95,40 @@ class _SettingScreen extends ConsumerWidget {
   }
 }
 
+class _BottomSheetOptionWidget extends StatelessWidget {
+  const _BottomSheetOptionWidget({
+    required this.caption,
+    required this.isSelected,
+  });
+
+  final String caption;
+  final bool isSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            caption,
+            style: LoturaTextStyle.button1(
+              color: Theme.of(context).colorScheme.inverseSurface,
+            ),
+          ),
+          if (isSelected)
+            Icon(
+              Symbols.check_rounded,
+              size: 24,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
 class _LocateSettingBottomSheet extends ConsumerWidget {
   const _LocateSettingBottomSheet();
 
@@ -107,30 +143,23 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
           children: LocateType.values
               .map(
                 (e) => LoturaGesture(
-                  onTap: () => data != e
-                      ? ref
-                          .read(locateManagerProvider.notifier)
-                          .updateLocateType(e)
-                      : null,
-                  child: SizedBox(
-                    height: 48,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          e.text,
-                          style: LoturaTextStyle.button1(
-                            color: Theme.of(context).colorScheme.inverseSurface,
-                          ),
-                        ),
-                        if (data == e)
-                          Icon(
-                            Symbols.check_rounded,
-                            size: 24,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                      ],
-                    ),
+                  onTap: () async {
+                    if (data != e) {
+                      if (await ref.read(locateManagerProvider.notifier).updateLocateType(e) == true) {
+                        if (context.mounted) {
+                          context.pop();
+                          ToastUtil.toast(
+                            context: context,
+                            text: '메인 세탁실 설정이 변경되었습니다.',
+                            type: ToastType.success,
+                          );
+                        }
+                      }
+                    }
+                  },
+                  child: _BottomSheetOptionWidget(
+                    caption: e.text,
+                    isSelected: data == e,
                   ),
                 ),
               )
@@ -157,30 +186,23 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
           children: ThemeType.values
               .map(
                 (e) => LoturaGesture(
-                  onTap: () => data != e
-                      ? ref
-                          .read(themeManagerProvider.notifier)
-                          .updateThemeType(e)
-                      : null,
-                  child: SizedBox(
-                    height: 48,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          e.text,
-                          style: LoturaTextStyle.button1(
-                            color: Theme.of(context).colorScheme.inverseSurface,
-                          ),
-                        ),
-                        if (data == e)
-                          Icon(
-                            Symbols.check_rounded,
-                            size: 24,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                      ],
-                    ),
+                  onTap: () async {
+                    if (data != e) {
+                      if (await ref.read(themeManagerProvider.notifier).updateThemeType(e) == true) {
+                        if (context.mounted) {
+                          context.pop();
+                          ToastUtil.toast(
+                            context: context,
+                            text: '모드 설정이 변경되었습니다.',
+                            type: ToastType.success,
+                          );
+                        }
+                      }
+                    }
+                  },
+                  child: _BottomSheetOptionWidget(
+                    caption: e.text,
+                    isSelected: data == e,
                   ),
                 ),
               )

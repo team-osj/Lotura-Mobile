@@ -35,6 +35,7 @@ class _NoticeScreen extends StatelessWidget {
           const SizedBox(height: 12),
           ListView.separated(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 3,
             itemBuilder: (context, index) {
               return _NoticeItemWidget();
