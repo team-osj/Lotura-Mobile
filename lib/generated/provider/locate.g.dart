@@ -6,7 +6,7 @@ part of '../../provider/locate.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$locateManagerHash() => r'6cdfb31c6a7b2faec8d07ac74e23a16d5ec8db35';
+String _$locateManagerHash() => r'866da06a27623c2493398a893a3f690b84169115';
 
 /// See also [LocateManager].
 @ProviderFor(LocateManager)

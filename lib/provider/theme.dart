@@ -1,34 +1,31 @@
-import 'package:hive/hive.dart';
+import 'package:lotura/core/constants/storage.dart';
 import 'package:lotura/core/type/theme_type.dart';
+import 'package:lotura/provider/storage.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '../generated/provider/theme.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 class ThemeManager extends _$ThemeManager {
-  final String _key = 'theme';
-  late Box<String> _box;
-
   @override
   Future<ThemeType> build() async {
-    try {
-      if (!Hive.isBoxOpen(_key)) {
-        _box = await Hive.openBox<String>(_key);
-        ref.onDispose(() => _box.close());
-      }
-
-      final themeName = _box.get(_key, defaultValue: ThemeType.light.name);
-      return ThemeType.values.firstWhere(
-        (type) => type.name == themeName,
-        orElse: () => ThemeType.light,
-      );
-    } catch (err) {
-      return ThemeType.light;
-    }
+    final storage = await ref.watch(storageProvider.future);
+    final themeName = storage.getString(Storage.kMode);
+    return ThemeType.values.firstWhere(
+      (type) => type.name == themeName,
+      orElse: () => ThemeType.light,
+    );
   }
 
-  Future<void> updateThemeType(ThemeType type) async {
-    _box.put(_key, type.name);
-    ref.invalidateSelf();
+  Future<bool> updateThemeType(ThemeType type) async {
+    try {
+      final storage = await ref.watch(storageProvider.future);
+      await storage.setString(Storage.kMode, type.name);
+      return true;
+    } catch (err) {
+      return false;
+    } finally {
+      ref.invalidateSelf();
+    }
   }
 }

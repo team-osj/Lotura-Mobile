@@ -25,12 +25,11 @@ dependencies:
   # 라우터
   go_router: ^14.8.1
 
+  # Local DB
+  shared_preferences: ^2.5.2
+
   # 이미지 svg
   flutter_svg: ^2.0.17
-
-  # Local DB
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
 
   # Icon
   material_symbols_icons: ^4.2808.1
