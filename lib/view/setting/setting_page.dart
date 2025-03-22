@@ -13,8 +13,8 @@ import 'package:lotura/core/type/theme_type.dart';
 import 'package:lotura/core/utils/toast.dart';
 import 'package:lotura/provider/locate.dart';
 import 'package:lotura/provider/theme.dart';
+import 'package:lotura/view/setting/component/setting_bottom_sheet_option_widget.dart';
 import 'package:lotura/view/setting/component/setting_option_widget.dart';
-import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends StatelessWidget {
@@ -59,11 +59,6 @@ class _SettingScreen extends ConsumerWidget {
             loading: () => const LoturaLoadingIndicator(),
           ),
         ),
-        /*const SizedBox(height: 12),
-        SettingOptionWidget(
-          onTap: () {},
-          caption: '알림음 설정',
-        ),*/
         const SizedBox(height: 12),
         SettingOptionWidget(
           onTap: () => showModalBottomSheet(
@@ -88,43 +83,9 @@ class _SettingScreen extends ConsumerWidget {
           onTap: () async => await launchUrl(
             Uri.parse('https://www.instagram.com/team.osj'),
           ),
-          caption: '문의 하기',
+          caption: '문의하기',
         ),
       ],
-    );
-  }
-}
-
-class _BottomSheetOptionWidget extends StatelessWidget {
-  const _BottomSheetOptionWidget({
-    required this.caption,
-    required this.isSelected,
-  });
-
-  final String caption;
-  final bool isSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            caption,
-            style: LoturaTextStyle.button1(
-              color: Theme.of(context).colorScheme.inverseSurface,
-            ),
-          ),
-          if (isSelected)
-            Icon(
-              Symbols.check_rounded,
-              size: 24,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-        ],
-      ),
     );
   }
 }
@@ -157,7 +118,7 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
                       }
                     }
                   },
-                  child: _BottomSheetOptionWidget(
+                  child: SettingBottomSheetOptionWidget(
                     caption: e.text,
                     isSelected: data == e,
                   ),
@@ -200,7 +161,7 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
                       }
                     }
                   },
-                  child: _BottomSheetOptionWidget(
+                  child: SettingBottomSheetOptionWidget(
                     caption: e.text,
                     isSelected: data == e,
                   ),
