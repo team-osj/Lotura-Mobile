@@ -19,31 +19,34 @@ class SettingOptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoturaGesture(
       onTap: () => onTap(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              caption,
-              style: LoturaTextStyle.subTitle2(
-                color: Theme.of(context).colorScheme.inverseSurface,
-              ),
-            ),
-            Row(
-              children: [
-                if (action != null) ...[
-                  action!,
-                  const SizedBox(width: 8),
-                ],
-                Icon(
-                  Symbols.chevron_right_rounded,
-                  color: Theme.of(context).colorScheme.surfaceTint,
-                  size: 24,
+      child: SizedBox(
+        height: 56,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                caption,
+                style: LoturaTextStyle.subTitle2(
+                  color: Theme.of(context).colorScheme.inverseSurface,
                 ),
-              ],
-            ),
-          ],
+              ),
+              Row(
+                children: [
+                  if (action != null) ...[
+                    action!,
+                    const SizedBox(width: 8),
+                  ],
+                  Icon(
+                    Symbols.chevron_right_rounded,
+                    color: Theme.of(context).colorScheme.surfaceTint,
+                    size: 24,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
