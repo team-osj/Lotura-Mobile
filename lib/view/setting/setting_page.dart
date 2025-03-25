@@ -106,14 +106,19 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
                 (e) => LoturaGesture(
                   onTap: () async {
                     if (data != e) {
-                      if (await ref.read(locateManagerProvider.notifier).updateLocateType(e) == true) {
-                        if (context.mounted) {
-                          context.pop();
+                      final updated = await ref
+                          .read(locateManagerProvider.notifier)
+                          .updateLocateType(e);
+                      if (context.mounted) {
+                        context.pop();
+                        if (updated == true) {
                           ToastUtil.toast(
                             context: context,
                             text: '메인 세탁실 설정이 변경되었습니다.',
                             type: ToastType.success,
                           );
+                        } else {
+                          ToastUtil.error(context);
                         }
                       }
                     }
@@ -149,14 +154,19 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
                 (e) => LoturaGesture(
                   onTap: () async {
                     if (data != e) {
-                      if (await ref.read(themeManagerProvider.notifier).updateThemeType(e) == true) {
-                        if (context.mounted) {
-                          context.pop();
+                      final updated = await ref
+                          .read(themeManagerProvider.notifier)
+                          .updateThemeType(e);
+                      if (context.mounted) {
+                        context.pop();
+                        if (updated == true) {
                           ToastUtil.toast(
                             context: context,
                             text: '모드 설정이 변경되었습니다.',
                             type: ToastType.success,
                           );
+                        } else {
+                          ToastUtil.error(context);
                         }
                       }
                     }
