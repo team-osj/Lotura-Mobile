@@ -35,4 +35,12 @@ class ToastUtil {
     await Future.delayed(const Duration(milliseconds: 1500));
     overlay.remove();
   }
+
+  static void error(BuildContext context) {
+    ToastUtil.toast(
+      context: context,
+      text: '오류가 발생했습니다.',
+      type: ToastType.failure,
+    );
+  }
 }
