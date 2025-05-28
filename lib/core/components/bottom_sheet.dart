@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lotura/core/component/lotura_gesture.dart';
+import 'package:lotura/core/components/button.dart';
 import 'package:lotura/core/core.dart';
 
 class LoturaBottomSheet extends StatelessWidget {
@@ -28,21 +28,33 @@ class LoturaBottomSheet extends StatelessWidget {
         ),
       ),
       child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 4),
-              const _RemoveSheetIcon(),
-              const SizedBox(height: 20),
-              _SheetDescription(title: title, caption: caption),
-              const SizedBox(height: 20),
-              content,
-              const SizedBox(height: 20),
-            ],
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 4),
+
+            /// TODO : Private Class로 분리하기
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Center(
+                    child: _RemoveSheetIcon(),
+                  ),
+                  const SizedBox(height: 20),
+                  _SheetDescription(
+                    title: title,
+                    caption: caption,
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
+            ),
+            content,
+            const SizedBox(height: 20),
+          ],
         ),
       ),
     );
@@ -54,17 +66,16 @@ class _RemoveSheetIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoturaGesture(
+    return LoturaButton(
       onTap: () => context.pop(),
-      child: Center(
-        child: SvgPicture.asset(
-          '$iconAsset/arrow_down_icon.svg',
-          width: 24,
-          height: 24,
-          colorFilter: ColorFilter.mode(
-            Theme.of(context).colorScheme.surfaceContainerLowest,
-            BlendMode.srcIn,
-          ),
+      shape: const CircleBorder(),
+      child: SvgPicture.asset(
+        Assets.arrowDownIcon,
+        width: 24,
+        height: 24,
+        colorFilter: ColorFilter.mode(
+          Theme.of(context).colorScheme.surfaceContainerLowest,
+          BlendMode.srcIn,
         ),
       ),
     );

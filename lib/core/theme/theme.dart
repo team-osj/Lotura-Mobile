@@ -1,9 +1,12 @@
-part of 'color.dart';
+part of '../constants/color.dart';
 
-class LoturaTheme {
+const String fontFamily = 'Pretendard';
+
+abstract final class LoturaTheme {
   LoturaTheme._();
 
   static final ThemeData light = ThemeData(
+    fontFamily: fontFamily,
     colorScheme: const ColorScheme(
       brightness: Brightness.light,
       scrim: LoturaCoreColor.transparent,
@@ -31,6 +34,7 @@ class LoturaTheme {
   );
 
   static final ThemeData dark = ThemeData(
+    fontFamily: fontFamily,
     colorScheme: const ColorScheme(
       brightness: Brightness.dark,
       scrim: LoturaCoreColor.transparent,

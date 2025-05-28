@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lotura/core/component/lotura_text_style.dart';
+import 'package:lotura/core/constants/text_style.dart';
 import 'package:lotura/core/utils/toast.dart';
 
 class LoturaToastWidget extends StatelessWidget {

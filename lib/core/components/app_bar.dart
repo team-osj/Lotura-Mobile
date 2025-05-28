@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lotura/core/component/lotura_gesture.dart';
+import 'package:lotura/core/components/button.dart';
 import 'package:lotura/core/core.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
@@ -16,14 +16,13 @@ class LoturaAppBar extends StatelessWidget implements PreferredSizeWidget {
     required BuildContext context,
   }) {
     return LoturaAppBar(
-      leading: LoturaGesture(
+      leading: LoturaButton(
         onTap: () => context.pop(),
-        child: Center(
-          child: Icon(
-            Symbols.arrow_back_ios_new_rounded,
-            color: Theme.of(context).colorScheme.surfaceContainerHigh,
-            size: 20,
-          ),
+        shape: const CircleBorder(),
+        child: Icon(
+          Symbols.arrow_back_ios_new_rounded,
+          color: Theme.of(context).colorScheme.surfaceContainerHigh,
+          size: 20,
         ),
       ),
     );
@@ -87,6 +86,7 @@ class DefaultAppBar extends StatelessWidget {
 
       /// title property 사용 시, 양 옆 padding 제거
       titleSpacing: 0,
+      centerTitle: true,
       backgroundColor: Theme.of(context).colorScheme.surface,
       title: title,
       leading: leading,

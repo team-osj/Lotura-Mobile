@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lotura/core/core.dart';
+import 'package:lotura/core/constants/text_style.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 class LoturaNetworkErrorWidget extends StatelessWidget {

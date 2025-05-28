@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class LoturaLoadingIndicator extends StatelessWidget {
-  const LoturaLoadingIndicator({
+class LoturaProgressIndicator extends StatelessWidget {
+  const LoturaProgressIndicator({
     super.key,
     this.width,
     this.height,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoturaScrollWidget extends StatefulWidget {
-  const LoturaScrollWidget({
+class LoturaScrollBar extends StatefulWidget {
+  const LoturaScrollBar({
     super.key,
     required this.child,
     this.physics,
@@ -11,10 +11,10 @@ class LoturaScrollWidget extends StatefulWidget {
   final ScrollPhysics? physics;
 
   @override
-  State<LoturaScrollWidget> createState() => _LoturaScrollWidgetState();
+  State<LoturaScrollBar> createState() => _LoturaScrollBarState();
 }
 
-class _LoturaScrollWidgetState extends State<LoturaScrollWidget> {
+class _LoturaScrollBarState extends State<LoturaScrollBar> {
   late ScrollController controller;
 
   @override
