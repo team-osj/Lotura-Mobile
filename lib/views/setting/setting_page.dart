@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lotura/core/component/lotura_app_bar.dart';
-import 'package:lotura/core/component/lotura_bottom_sheet.dart';
-import 'package:lotura/core/component/lotura_error_icon.dart';
-import 'package:lotura/core/component/lotura_gesture.dart';
-import 'package:lotura/core/component/lotura_loading_indicator.dart';
+import 'package:lotura/core/components/app_bar.dart';
+import 'package:lotura/core/components/bottom_sheet.dart';
+import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/error_icon.dart';
+import 'package:lotura/core/components/progress_indicator.dart';
 import 'package:lotura/core/core.dart';
-import 'package:lotura/core/layout/lotura_layout.dart';
+import 'package:lotura/core/layout/layout.dart';
 import 'package:lotura/core/type/locate_type.dart';
 import 'package:lotura/core/type/theme_type.dart';
 import 'package:lotura/core/utils/toast.dart';
-import 'package:lotura/provider/locate.dart';
-import 'package:lotura/provider/theme.dart';
-import 'package:lotura/view/setting/component/setting_bottom_sheet_option_widget.dart';
-import 'package:lotura/view/setting/component/setting_option_widget.dart';
+import 'package:lotura/providers/locate.dart';
+import 'package:lotura/providers/theme.dart';
+import 'package:lotura/views/setting/components/setting_bottom_sheet_option_widget.dart';
+import 'package:lotura/views/setting/components/setting_option_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends StatelessWidget {
@@ -56,7 +56,7 @@ class _SettingScreen extends ConsumerWidget {
               ),
             ),
             error: (_, __) => const LoturaErrorIcon(),
-            loading: () => const LoturaLoadingIndicator(),
+            loading: () => const LoturaProgressIndicator(),
           ),
         ),
         const SizedBox(height: 12),
@@ -75,7 +75,7 @@ class _SettingScreen extends ConsumerWidget {
               size: 24,
             ),
             error: (_, __) => const LoturaErrorIcon(),
-            loading: () => const LoturaLoadingIndicator(),
+            loading: () => const LoturaProgressIndicator(),
           ),
         ),
         const SizedBox(height: 12),
@@ -103,7 +103,7 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
         data: (data) => Column(
           children: LocateType.values
               .map(
-                (e) => LoturaGesture(
+                (e) => LoturaButton(
                   onTap: () async {
                     if (data != e) {
                       final updated = await ref
@@ -132,7 +132,7 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
               .toList(),
         ),
         error: (_, __) => const LoturaErrorIcon(height: 144),
-        loading: () => const LoturaLoadingIndicator(height: 144),
+        loading: () => const LoturaProgressIndicator(height: 144),
       ),
     );
   }
@@ -151,7 +151,7 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
         data: (data) => Column(
           children: ThemeType.values
               .map(
-                (e) => LoturaGesture(
+                (e) => LoturaButton(
                   onTap: () async {
                     if (data != e) {
                       final updated = await ref
@@ -180,7 +180,7 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
               .toList(),
         ),
         error: (_, __) => const LoturaErrorIcon(height: 144),
-        loading: () => const LoturaLoadingIndicator(height: 144),
+        loading: () => const LoturaProgressIndicator(height: 144),
       ),
     );
   }

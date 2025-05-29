@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lotura/core/component/lotura_scroll_widget.dart';
+import 'package:lotura/core/components/scroll_bar.dart';
 import 'package:lotura/core/core.dart';
 
 class LaundryApplyTabScreen extends StatelessWidget {
@@ -7,7 +7,7 @@ class LaundryApplyTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const LoturaScrollWidget(
+    return const LoturaScrollBar(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(

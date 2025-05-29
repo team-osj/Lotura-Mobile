@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lotura/core/core.dart';
-import 'package:lotura/core/layout/lotura_layout.dart';
+import 'package:lotura/core/layout/layout.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -28,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
     return LoturaLayout(
       body: Center(
         child: Image.asset(
-          '$imageLogoAsset/${Theme.of(context).colorScheme.brightness.name}_osj_splash_logo.png',
+          Assets.logo(Theme.of(context).brightness),
           width: 300,
           height: 300,
         ),
