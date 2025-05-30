@@ -1,9 +1,9 @@
 import 'package:lotura/core/constants/storage.dart';
 import 'package:lotura/core/type/theme_type.dart';
-import 'package:lotura/provider/storage.dart';
+import 'package:lotura/providers/storage.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part '../generated/provider/theme.g.dart';
+part '../generated/providers/theme.g.dart';
 
 @riverpod
 class ThemeManager extends _$ThemeManager {

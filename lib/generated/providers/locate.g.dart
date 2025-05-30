@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../provider/locate.dart';
+part of '../../providers/locate.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$locateManagerHash() => r'866da06a27623c2493398a893a3f690b84169115';
+String _$locateManagerHash() => r'1bd2c67482130d213051f47cdaa9db22ef3037a8';
 
 /// See also [LocateManager].
 @ProviderFor(LocateManager)

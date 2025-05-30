@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lotura/core/type/view_option_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part '../generated/provider/view_option.g.dart';
+part '../generated/providers/view_option.g.dart';
 
 @riverpod
 class ViewOptionManager extends _$ViewOptionManager {

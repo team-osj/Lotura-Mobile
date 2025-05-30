@@ -1,9 +1,9 @@
 import 'package:lotura/core/constants/storage.dart';
 import 'package:lotura/core/type/locate_type.dart';
-import 'package:lotura/provider/storage.dart';
+import 'package:lotura/providers/storage.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part '../generated/provider/locate.g.dart';
+part '../generated/providers/locate.g.dart';
 
 @riverpod
 class LocateManager extends _$LocateManager {
