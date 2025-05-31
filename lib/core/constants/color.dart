@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-part 'theme.dart';
+part '../theme/theme.dart';
 
 abstract final class LoturaCoreColor {
   LoturaCoreColor._();

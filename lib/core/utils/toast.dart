@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lotura/core/component/lotura_toast_widget.dart';
+import 'package:lotura/core/components/toast_widget.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 enum ToastType {
