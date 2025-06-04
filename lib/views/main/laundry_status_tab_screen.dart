@@ -6,9 +6,8 @@ import 'package:lotura/core/components/network_error_widget.dart';
 import 'package:lotura/core/components/progress_indicator.dart';
 import 'package:lotura/core/components/scroll_bar.dart';
 import 'package:lotura/core/core.dart';
-import 'package:lotura/core/type/device_status_type.dart';
-import 'package:lotura/core/type/device_type.dart';
 import 'package:lotura/core/type/locate_type.dart';
+import 'package:lotura/models/laundry.dart';
 import 'package:lotura/providers/locate.dart';
 
 class LaundryStatusTabScreen extends ConsumerWidget {
@@ -30,35 +29,11 @@ class LaundryStatusTabScreen extends ConsumerWidget {
               SizedBox(height: 20),
               _RoomSelectRadioRow(),
               SizedBox(height: 28),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _DeviceStatusWidget(
-                        status: DeviceStatusType.available,
-                        type: DeviceType.dryer,
-                      ),
-                      SizedBox(width: 8),
-                      _DeviceStatusWidget(
-                        status: DeviceStatusType.available,
-                        type: DeviceType.dryer,
-                      ),
-                      _MoveRouteIcon(),
-                      _DeviceStatusWidget(
-                        status: DeviceStatusType.available,
-                        type: DeviceType.dryer,
-                      ),
-                      SizedBox(width: 8),
-                      _DeviceStatusWidget(
-                        status: DeviceStatusType.available,
-                        type: DeviceType.dryer,
-                      ),
-                    ],
-                  ),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                ],
               ),
             ],
           ),
@@ -164,44 +139,41 @@ class _RoomSelectRadioButton extends ConsumerWidget {
 }
 
 class _DeviceStatusWidget extends StatelessWidget {
-  const _DeviceStatusWidget({
-    required this.status,
-    required this.type,
-  });
+  const _DeviceStatusWidget({required this.device});
 
-  final DeviceStatusType status;
-  final DeviceType type;
+  final LaundryResponse device;
 
   @override
   Widget build(BuildContext context) {
-    return LoturaButton(
-      onTap: () {},
-      width: type.width,
-      color: status.themeColorHandler(context),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            type.icon,
-            size: 24,
-            color: status.themeIconColorHandler(context),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            '18번',
-            style: LoturaTextStyle.subTitle3(
-              color: Theme.of(context).colorScheme.inverseSurface,
+    return Expanded(
+      child: LoturaButton(
+        onTap: () {},
+        color: device.state.themeColorHandler(context),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              device.type.icon,
+              size: 24,
+              color: device.state.themeIconColorHandler(context),
             ),
-          ),
-          Text(
-            type.text,
-            style: LoturaTextStyle.body1(
-              color: Theme.of(context).colorScheme.inverseSurface,
+            const SizedBox(height: 8),
+            Text(
+              '${device.id}번',
+              style: LoturaTextStyle.subTitle3(
+                color: Theme.of(context).colorScheme.inverseSurface,
+              ),
             ),
-          ),
-        ],
+            Text(
+              device.type.text,
+              style: LoturaTextStyle.body1(
+                color: Theme.of(context).colorScheme.inverseSurface,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
