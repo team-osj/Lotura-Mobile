@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,63 +9,53 @@ part of '../../models/laundry.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+LaundryResponse _$LaundryResponseFromJson(Map<String, dynamic> json) {
+  return _LaundryResponse.fromJson(json);
+}
 
 /// @nodoc
 mixin _$LaundryResponse {
-  int get id;
-  DeviceType get deviceType;
-  int get state;
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deviceType')
+  DeviceType get type => throw _privateConstructorUsedError;
+  DeviceStatusType get state => throw _privateConstructorUsedError;
+
+  /// Serializes this LaundryResponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of LaundryResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
   $LaundryResponseCopyWith<LaundryResponse> get copyWith =>
-      _$LaundryResponseCopyWithImpl<LaundryResponse>(
-          this as LaundryResponse, _$identity);
-
-  /// Serializes this LaundryResponse to a JSON map.
-  Map<String, dynamic> toJson();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is LaundryResponse &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.deviceType, deviceType) ||
-                other.deviceType == deviceType) &&
-            (identical(other.state, state) || other.state == state));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, deviceType, state);
-
-  @override
-  String toString() {
-    return 'LaundryResponse(id: $id, deviceType: $deviceType, state: $state)';
-  }
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $LaundryResponseCopyWith<$Res> {
+abstract class $LaundryResponseCopyWith<$Res> {
   factory $LaundryResponseCopyWith(
-          LaundryResponse value, $Res Function(LaundryResponse) _then) =
-      _$LaundryResponseCopyWithImpl;
+          LaundryResponse value, $Res Function(LaundryResponse) then) =
+      _$LaundryResponseCopyWithImpl<$Res, LaundryResponse>;
   @useResult
-  $Res call({int id, DeviceType deviceType, int state});
+  $Res call(
+      {int id,
+      @JsonKey(name: 'deviceType') DeviceType type,
+      DeviceStatusType state});
 }
 
 /// @nodoc
-class _$LaundryResponseCopyWithImpl<$Res>
+class _$LaundryResponseCopyWithImpl<$Res, $Val extends LaundryResponse>
     implements $LaundryResponseCopyWith<$Res> {
-  _$LaundryResponseCopyWithImpl(this._self, this._then);
+  _$LaundryResponseCopyWithImpl(this._value, this._then);
 
-  final LaundryResponse _self;
-  final $Res Function(LaundryResponse) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
   /// Create a copy of LaundryResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -74,120 +63,150 @@ class _$LaundryResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? deviceType = null,
+    Object? type = null,
     Object? state = null,
   }) {
-    return _then(_self.copyWith(
+    return _then(_value.copyWith(
       id: null == id
-          ? _self.id
+          ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      deviceType: null == deviceType
-          ? _self.deviceType
-          : deviceType // ignore: cast_nullable_to_non_nullable
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as DeviceType,
       state: null == state
-          ? _self.state
+          ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
+              as DeviceStatusType,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LaundryResponseImplCopyWith<$Res>
+    implements $LaundryResponseCopyWith<$Res> {
+  factory _$$LaundryResponseImplCopyWith(_$LaundryResponseImpl value,
+          $Res Function(_$LaundryResponseImpl) then) =
+      __$$LaundryResponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      @JsonKey(name: 'deviceType') DeviceType type,
+      DeviceStatusType state});
+}
+
+/// @nodoc
+class __$$LaundryResponseImplCopyWithImpl<$Res>
+    extends _$LaundryResponseCopyWithImpl<$Res, _$LaundryResponseImpl>
+    implements _$$LaundryResponseImplCopyWith<$Res> {
+  __$$LaundryResponseImplCopyWithImpl(
+      _$LaundryResponseImpl _value, $Res Function(_$LaundryResponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LaundryResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? state = null,
+  }) {
+    return _then(_$LaundryResponseImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as DeviceType,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as DeviceStatusType,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _LaundryResponse implements LaundryResponse {
-  const _LaundryResponse(
-      {required this.id, required this.deviceType, required this.state});
-  factory _LaundryResponse.fromJson(Map<String, dynamic> json) =>
-      _$LaundryResponseFromJson(json);
+class _$LaundryResponseImpl implements _LaundryResponse {
+  const _$LaundryResponseImpl(
+      {required this.id,
+      @JsonKey(name: 'deviceType') required this.type,
+      required this.state});
+
+  factory _$LaundryResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LaundryResponseImplFromJson(json);
 
   @override
   final int id;
   @override
-  final DeviceType deviceType;
+  @JsonKey(name: 'deviceType')
+  final DeviceType type;
   @override
-  final int state;
-
-  /// Create a copy of LaundryResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$LaundryResponseCopyWith<_LaundryResponse> get copyWith =>
-      __$LaundryResponseCopyWithImpl<_LaundryResponse>(this, _$identity);
+  final DeviceStatusType state;
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$LaundryResponseToJson(
-      this,
-    );
+  String toString() {
+    return 'LaundryResponse(id: $id, type: $type, state: $state)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LaundryResponse &&
+            other is _$LaundryResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.deviceType, deviceType) ||
-                other.deviceType == deviceType) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.state, state) || other.state == state));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, deviceType, state);
+  int get hashCode => Object.hash(runtimeType, id, type, state);
+
+  /// Create a copy of LaundryResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LaundryResponseImplCopyWith<_$LaundryResponseImpl> get copyWith =>
+      __$$LaundryResponseImplCopyWithImpl<_$LaundryResponseImpl>(
+          this, _$identity);
 
   @override
-  String toString() {
-    return 'LaundryResponse(id: $id, deviceType: $deviceType, state: $state)';
+  Map<String, dynamic> toJson() {
+    return _$$LaundryResponseImplToJson(
+      this,
+    );
   }
 }
 
-/// @nodoc
-abstract mixin class _$LaundryResponseCopyWith<$Res>
-    implements $LaundryResponseCopyWith<$Res> {
-  factory _$LaundryResponseCopyWith(
-          _LaundryResponse value, $Res Function(_LaundryResponse) _then) =
-      __$LaundryResponseCopyWithImpl;
+abstract class _LaundryResponse implements LaundryResponse {
+  const factory _LaundryResponse(
+      {required final int id,
+      @JsonKey(name: 'deviceType') required final DeviceType type,
+      required final DeviceStatusType state}) = _$LaundryResponseImpl;
+
+  factory _LaundryResponse.fromJson(Map<String, dynamic> json) =
+      _$LaundryResponseImpl.fromJson;
+
   @override
-  @useResult
-  $Res call({int id, DeviceType deviceType, int state});
-}
-
-/// @nodoc
-class __$LaundryResponseCopyWithImpl<$Res>
-    implements _$LaundryResponseCopyWith<$Res> {
-  __$LaundryResponseCopyWithImpl(this._self, this._then);
-
-  final _LaundryResponse _self;
-  final $Res Function(_LaundryResponse) _then;
+  int get id;
+  @override
+  @JsonKey(name: 'deviceType')
+  DeviceType get type;
+  @override
+  DeviceStatusType get state;
 
   /// Create a copy of LaundryResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? id = null,
-    Object? deviceType = null,
-    Object? state = null,
-  }) {
-    return _then(_LaundryResponse(
-      id: null == id
-          ? _self.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      deviceType: null == deviceType
-          ? _self.deviceType
-          : deviceType // ignore: cast_nullable_to_non_nullable
-              as DeviceType,
-      state: null == state
-          ? _self.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LaundryResponseImplCopyWith<_$LaundryResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-// dart format on

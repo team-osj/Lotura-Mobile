@@ -6,21 +6,30 @@ part of '../../models/laundry.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_LaundryResponse _$LaundryResponseFromJson(Map<String, dynamic> json) =>
-    _LaundryResponse(
+_$LaundryResponseImpl _$$LaundryResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$LaundryResponseImpl(
       id: (json['id'] as num).toInt(),
-      deviceType: $enumDecode(_$DeviceTypeEnumMap, json['device_type']),
-      state: (json['state'] as num).toInt(),
+      type: $enumDecode(_$DeviceTypeEnumMap, json['deviceType']),
+      state: $enumDecode(_$DeviceStatusTypeEnumMap, json['state']),
     );
 
-Map<String, dynamic> _$LaundryResponseToJson(_LaundryResponse instance) =>
+Map<String, dynamic> _$$LaundryResponseImplToJson(
+        _$LaundryResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'device_type': _$DeviceTypeEnumMap[instance.deviceType]!,
-      'state': instance.state,
+      'deviceType': _$DeviceTypeEnumMap[instance.type]!,
+      'state': _$DeviceStatusTypeEnumMap[instance.state]!,
     };
 
 const _$DeviceTypeEnumMap = {
   DeviceType.washer: 'WASH',
   DeviceType.dryer: 'DRY',
+};
+
+const _$DeviceStatusTypeEnumMap = {
+  DeviceStatusType.working: 0,
+  DeviceStatusType.available: 1,
+  DeviceStatusType.disconnect: 2,
+  DeviceStatusType.breakdown: 3,
 };

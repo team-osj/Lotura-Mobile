@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,65 +9,50 @@ part of '../../models/notice.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+NoticeResponse _$NoticeResponseFromJson(Map<String, dynamic> json) {
+  return _NoticeResponse.fromJson(json);
+}
 
 /// @nodoc
 mixin _$NoticeResponse {
-  int get id;
-  String get title;
-  String get contents;
-  DateTime get date;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get contents => throw _privateConstructorUsedError;
+  DateTime get date => throw _privateConstructorUsedError;
+
+  /// Serializes this NoticeResponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of NoticeResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
   $NoticeResponseCopyWith<NoticeResponse> get copyWith =>
-      _$NoticeResponseCopyWithImpl<NoticeResponse>(
-          this as NoticeResponse, _$identity);
-
-  /// Serializes this NoticeResponse to a JSON map.
-  Map<String, dynamic> toJson();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is NoticeResponse &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.contents, contents) ||
-                other.contents == contents) &&
-            (identical(other.date, date) || other.date == date));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, title, contents, date);
-
-  @override
-  String toString() {
-    return 'NoticeResponse(id: $id, title: $title, contents: $contents, date: $date)';
-  }
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $NoticeResponseCopyWith<$Res> {
+abstract class $NoticeResponseCopyWith<$Res> {
   factory $NoticeResponseCopyWith(
-          NoticeResponse value, $Res Function(NoticeResponse) _then) =
-      _$NoticeResponseCopyWithImpl;
+          NoticeResponse value, $Res Function(NoticeResponse) then) =
+      _$NoticeResponseCopyWithImpl<$Res, NoticeResponse>;
   @useResult
   $Res call({int id, String title, String contents, DateTime date});
 }
 
 /// @nodoc
-class _$NoticeResponseCopyWithImpl<$Res>
+class _$NoticeResponseCopyWithImpl<$Res, $Val extends NoticeResponse>
     implements $NoticeResponseCopyWith<$Res> {
-  _$NoticeResponseCopyWithImpl(this._self, this._then);
+  _$NoticeResponseCopyWithImpl(this._value, this._then);
 
-  final NoticeResponse _self;
-  final $Res Function(NoticeResponse) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
   /// Create a copy of NoticeResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -80,21 +64,71 @@ class _$NoticeResponseCopyWithImpl<$Res>
     Object? contents = null,
     Object? date = null,
   }) {
-    return _then(_self.copyWith(
+    return _then(_value.copyWith(
       id: null == id
-          ? _self.id
+          ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
       title: null == title
-          ? _self.title
+          ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       contents: null == contents
-          ? _self.contents
+          ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
               as String,
       date: null == date
-          ? _self.date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$NoticeResponseImplCopyWith<$Res>
+    implements $NoticeResponseCopyWith<$Res> {
+  factory _$$NoticeResponseImplCopyWith(_$NoticeResponseImpl value,
+          $Res Function(_$NoticeResponseImpl) then) =
+      __$$NoticeResponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String title, String contents, DateTime date});
+}
+
+/// @nodoc
+class __$$NoticeResponseImplCopyWithImpl<$Res>
+    extends _$NoticeResponseCopyWithImpl<$Res, _$NoticeResponseImpl>
+    implements _$$NoticeResponseImplCopyWith<$Res> {
+  __$$NoticeResponseImplCopyWithImpl(
+      _$NoticeResponseImpl _value, $Res Function(_$NoticeResponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NoticeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? contents = null,
+    Object? date = null,
+  }) {
+    return _then(_$NoticeResponseImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      contents: null == contents
+          ? _value.contents
+          : contents // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -103,14 +137,15 @@ class _$NoticeResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _NoticeResponse implements NoticeResponse {
-  const _NoticeResponse(
+class _$NoticeResponseImpl implements _NoticeResponse {
+  const _$NoticeResponseImpl(
       {required this.id,
       required this.title,
       required this.contents,
       required this.date});
-  factory _NoticeResponse.fromJson(Map<String, dynamic> json) =>
-      _$NoticeResponseFromJson(json);
+
+  factory _$NoticeResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NoticeResponseImplFromJson(json);
 
   @override
   final int id;
@@ -121,26 +156,16 @@ class _NoticeResponse implements NoticeResponse {
   @override
   final DateTime date;
 
-  /// Create a copy of NoticeResponse
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$NoticeResponseCopyWith<_NoticeResponse> get copyWith =>
-      __$NoticeResponseCopyWithImpl<_NoticeResponse>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$NoticeResponseToJson(
-      this,
-    );
+  String toString() {
+    return 'NoticeResponse(id: $id, title: $title, contents: $contents, date: $date)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NoticeResponse &&
+            other is _$NoticeResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.contents, contents) ||
@@ -152,60 +177,46 @@ class _NoticeResponse implements NoticeResponse {
   @override
   int get hashCode => Object.hash(runtimeType, id, title, contents, date);
 
+  /// Create a copy of NoticeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  String toString() {
-    return 'NoticeResponse(id: $id, title: $title, contents: $contents, date: $date)';
+  @pragma('vm:prefer-inline')
+  _$$NoticeResponseImplCopyWith<_$NoticeResponseImpl> get copyWith =>
+      __$$NoticeResponseImplCopyWithImpl<_$NoticeResponseImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$NoticeResponseImplToJson(
+      this,
+    );
   }
 }
 
-/// @nodoc
-abstract mixin class _$NoticeResponseCopyWith<$Res>
-    implements $NoticeResponseCopyWith<$Res> {
-  factory _$NoticeResponseCopyWith(
-          _NoticeResponse value, $Res Function(_NoticeResponse) _then) =
-      __$NoticeResponseCopyWithImpl;
+abstract class _NoticeResponse implements NoticeResponse {
+  const factory _NoticeResponse(
+      {required final int id,
+      required final String title,
+      required final String contents,
+      required final DateTime date}) = _$NoticeResponseImpl;
+
+  factory _NoticeResponse.fromJson(Map<String, dynamic> json) =
+      _$NoticeResponseImpl.fromJson;
+
   @override
-  @useResult
-  $Res call({int id, String title, String contents, DateTime date});
-}
-
-/// @nodoc
-class __$NoticeResponseCopyWithImpl<$Res>
-    implements _$NoticeResponseCopyWith<$Res> {
-  __$NoticeResponseCopyWithImpl(this._self, this._then);
-
-  final _NoticeResponse _self;
-  final $Res Function(_NoticeResponse) _then;
+  int get id;
+  @override
+  String get title;
+  @override
+  String get contents;
+  @override
+  DateTime get date;
 
   /// Create a copy of NoticeResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? contents = null,
-    Object? date = null,
-  }) {
-    return _then(_NoticeResponse(
-      id: null == id
-          ? _self.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _self.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      contents: null == contents
-          ? _self.contents
-          : contents // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NoticeResponseImplCopyWith<_$NoticeResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-// dart format on
