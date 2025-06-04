@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum DeviceStatusType {
+  @JsonValue(0)
   working('작동 중'),
+
+  @JsonValue(1)
   available('사용 가능'),
+
+  @JsonValue(2)
   disconnect('연결 끊김'),
+
+  @JsonValue(3)
   breakdown('고장');
 
   Color themeColorHandler(BuildContext context) {
