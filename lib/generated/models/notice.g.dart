@@ -6,15 +6,16 @@ part of '../../models/notice.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_NoticeResponse _$NoticeResponseFromJson(Map<String, dynamic> json) =>
-    _NoticeResponse(
+_$NoticeResponseImpl _$$NoticeResponseImplFromJson(Map<String, dynamic> json) =>
+    _$NoticeResponseImpl(
       id: (json['id'] as num).toInt(),
       title: json['title'] as String,
       contents: json['contents'] as String,
       date: DateTime.parse(json['date'] as String),
     );
 
-Map<String, dynamic> _$NoticeResponseToJson(_NoticeResponse instance) =>
+Map<String, dynamic> _$$NoticeResponseImplToJson(
+        _$NoticeResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

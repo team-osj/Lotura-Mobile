@@ -19,7 +19,7 @@ dependencies:
   riverpod_annotation: ^2.6.1
 
   # JSON 파싱 라이브러리
-  freezed_annotation: ^3.0.0
+  freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
 
   # 라우터
@@ -53,11 +53,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Lint
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.15
-  json_serializable: ^6.9.4
-  freezed: ^3.0.3
-  riverpod_generator: ^2.6.5
+
+  # Generator
+  build_runner: ^2.4.13
+  riverpod_generator: ^2.6.4
+
+  # Modeling
+  freezed: ^2.5.7
+  json_serializable: ^6.9.0
   source_gen: ^2.0.0
 
 flutter:
