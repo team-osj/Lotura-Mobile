@@ -49,6 +49,9 @@ dependencies:
   # DateFormat.. etc
   intl: ^0.20.2
 
+  # Analyzer
+  analyzer_plugin: ^0.13.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
