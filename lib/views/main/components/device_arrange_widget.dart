@@ -89,7 +89,6 @@ class DeviceArrangeRow extends StatelessWidget {
 
 class _DryerArrangePart extends StatelessWidget {
   const _DryerArrangePart({
-    super.key,
     required this.left,
     required this.right,
   });
