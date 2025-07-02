@@ -13,7 +13,7 @@ class DeviceResponse with _$DeviceResponse {
     @JsonKey(name: 'state')
     required DeviceStatusType status,
     required DeviceType deviceType,
-    required LocateType roomType,
+    LocateType? roomType,
   }) = _DeviceResponse;
 
   factory DeviceResponse.fromJson(Map<String, dynamic> json) =>

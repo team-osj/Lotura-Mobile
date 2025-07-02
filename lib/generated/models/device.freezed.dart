@@ -24,7 +24,7 @@ mixin _$DeviceResponse {
   @JsonKey(name: 'state')
   DeviceStatusType get status => throw _privateConstructorUsedError;
   DeviceType get deviceType => throw _privateConstructorUsedError;
-  LocateType get roomType => throw _privateConstructorUsedError;
+  LocateType? get roomType => throw _privateConstructorUsedError;
 
   /// Serializes this DeviceResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $DeviceResponseCopyWith<$Res> {
       {int id,
       @JsonKey(name: 'state') DeviceStatusType status,
       DeviceType deviceType,
-      LocateType roomType});
+      LocateType? roomType});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$DeviceResponseCopyWithImpl<$Res, $Val extends DeviceResponse>
     Object? id = null,
     Object? status = null,
     Object? deviceType = null,
-    Object? roomType = null,
+    Object? roomType = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -82,10 +82,10 @@ class _$DeviceResponseCopyWithImpl<$Res, $Val extends DeviceResponse>
           ? _value.deviceType
           : deviceType // ignore: cast_nullable_to_non_nullable
               as DeviceType,
-      roomType: null == roomType
+      roomType: freezed == roomType
           ? _value.roomType
           : roomType // ignore: cast_nullable_to_non_nullable
-              as LocateType,
+              as LocateType?,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$DeviceResponseImplCopyWith<$Res>
       {int id,
       @JsonKey(name: 'state') DeviceStatusType status,
       DeviceType deviceType,
-      LocateType roomType});
+      LocateType? roomType});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$DeviceResponseImplCopyWithImpl<$Res>
     Object? id = null,
     Object? status = null,
     Object? deviceType = null,
-    Object? roomType = null,
+    Object? roomType = freezed,
   }) {
     return _then(_$DeviceResponseImpl(
       id: null == id
@@ -136,10 +136,10 @@ class __$$DeviceResponseImplCopyWithImpl<$Res>
           ? _value.deviceType
           : deviceType // ignore: cast_nullable_to_non_nullable
               as DeviceType,
-      roomType: null == roomType
+      roomType: freezed == roomType
           ? _value.roomType
           : roomType // ignore: cast_nullable_to_non_nullable
-              as LocateType,
+              as LocateType?,
     ));
   }
 }
@@ -151,7 +151,7 @@ class _$DeviceResponseImpl implements _DeviceResponse {
       {required this.id,
       @JsonKey(name: 'state') required this.status,
       required this.deviceType,
-      required this.roomType});
+      this.roomType});
 
   factory _$DeviceResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeviceResponseImplFromJson(json);
@@ -164,7 +164,7 @@ class _$DeviceResponseImpl implements _DeviceResponse {
   @override
   final DeviceType deviceType;
   @override
-  final LocateType roomType;
+  final LocateType? roomType;
 
   @override
   String toString() {
@@ -211,7 +211,7 @@ abstract class _DeviceResponse implements DeviceResponse {
       {required final int id,
       @JsonKey(name: 'state') required final DeviceStatusType status,
       required final DeviceType deviceType,
-      required final LocateType roomType}) = _$DeviceResponseImpl;
+      final LocateType? roomType}) = _$DeviceResponseImpl;
 
   factory _DeviceResponse.fromJson(Map<String, dynamic> json) =
       _$DeviceResponseImpl.fromJson;
@@ -224,7 +224,7 @@ abstract class _DeviceResponse implements DeviceResponse {
   @override
   DeviceType get deviceType;
   @override
-  LocateType get roomType;
+  LocateType? get roomType;
 
   /// Create a copy of DeviceResponse
   /// with the given fields replaced by the non-null parameter values.
