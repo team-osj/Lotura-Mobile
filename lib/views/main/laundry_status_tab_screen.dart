@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lotura/core/components/button.dart';
-import 'package:lotura/core/components/network_error_widget.dart';
+import 'package:lotura/core/components/empty.dart';
 import 'package:lotura/core/components/progress_indicator.dart';
 import 'package:lotura/core/components/scroll_bar.dart';
 import 'package:lotura/core/core.dart';
 import 'package:lotura/core/type/locate_type.dart';
-import 'package:lotura/models/laundry.dart';
+import 'package:lotura/models/device.dart';
+import 'package:lotura/providers/device.dart';
 import 'package:lotura/providers/locate.dart';
+import 'package:lotura/providers/websocket.dart';
+import 'package:lotura/views/main/components/device_arrange_widget.dart';
 
 class LaundryStatusTabScreen extends ConsumerWidget {
   const LaundryStatusTabScreen({super.key});
@@ -16,47 +18,52 @@ class LaundryStatusTabScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final roomLocateAsyncValue = ref.watch(roomManagerProvider);
-    return roomLocateAsyncValue.when(
-      data: (data) => LoturaScrollBar(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 28),
-              _RoomLocateTitle(locate: data.title),
-              SizedBox(height: 20),
-              _RoomSelectRadioRow(),
-              SizedBox(height: 28),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+    final deviceAsyncValue = ref.watch(deviceManagerProvider);
 
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-      error: (_, __) => const LoturaNetworkErrorWidget(),
-      loading: () => const LoturaProgressIndicator(),
-    );
-  }
-}
+    if (roomLocateAsyncValue is AsyncLoading ||
+        deviceAsyncValue is AsyncLoading) {
+      return const LoturaProgressIndicator();
+    }
 
-class _MoveRouteIcon extends StatelessWidget {
-  const _MoveRouteIcon();
+    if (roomLocateAsyncValue is AsyncError || deviceAsyncValue is AsyncError) {
+      return const EmptyWidget(text: '서버와의 연결이 해제되었습니다.');
+    }
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: SvgPicture.asset(
-        Assets.moveRouteIcon,
-        colorFilter: ColorFilter.mode(
-          Theme.of(context).colorScheme.surfaceContainerLowest,
-          BlendMode.srcIn,
+    final locateArrange = roomLocateAsyncValue.value!.locateArrange;
+
+    return LoturaScrollBar(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 28),
+            _RoomLocateTitle(locate: roomLocateAsyncValue.value!.title),
+            const SizedBox(height: 20),
+            const _RoomSelectRadioRow(),
+            const SizedBox(height: 28),
+            ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: locateArrange.length,
+              itemBuilder: (context, index) {
+                final List<DeviceResponse> filteredDevices =
+                    deviceAsyncValue.value!.where((device) {
+                  return locateArrange[index].values.single.contains(device.id);
+                }).toList();
+
+                return DeviceArrangeRow(
+                  type: roomLocateAsyncValue
+                      .value!.locateArrange[index].keys.single,
+                  devices: filteredDevices,
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(height: 24);
+              },
+            ),
+          ],
         ),
       ),
     );
@@ -132,47 +139,6 @@ class _RoomSelectRadioButton extends ConsumerWidget {
                 ? Theme.of(context).colorScheme.onSurface
                 : Theme.of(context).colorScheme.onSecondary,
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _DeviceStatusWidget extends StatelessWidget {
-  const _DeviceStatusWidget({required this.device});
-
-  final LaundryResponse device;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: LoturaButton(
-        onTap: () {},
-        color: device.state.themeColorHandler(context),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              device.type.icon,
-              size: 24,
-              color: device.state.themeIconColorHandler(context),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              '${device.id}번',
-              style: LoturaTextStyle.subTitle3(
-                color: Theme.of(context).colorScheme.inverseSurface,
-              ),
-            ),
-            Text(
-              device.type.text,
-              style: LoturaTextStyle.body1(
-                color: Theme.of(context).colorScheme.inverseSurface,
-              ),
-            ),
-          ],
         ),
       ),
     );
