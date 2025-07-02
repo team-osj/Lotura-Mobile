@@ -11,7 +11,7 @@ _$DeviceResponseImpl _$$DeviceResponseImplFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num).toInt(),
       status: $enumDecode(_$DeviceStatusTypeEnumMap, json['state']),
       deviceType: $enumDecode(_$DeviceTypeEnumMap, json['device_type']),
-      roomType: $enumDecode(_$LocateTypeEnumMap, json['room_type']),
+      roomType: $enumDecodeNullable(_$LocateTypeEnumMap, json['room_type']),
     );
 
 Map<String, dynamic> _$$DeviceResponseImplToJson(
@@ -20,7 +20,7 @@ Map<String, dynamic> _$$DeviceResponseImplToJson(
       'id': instance.id,
       'state': _$DeviceStatusTypeEnumMap[instance.status]!,
       'device_type': _$DeviceTypeEnumMap[instance.deviceType]!,
-      'room_type': _$LocateTypeEnumMap[instance.roomType]!,
+      'room_type': _$LocateTypeEnumMap[instance.roomType],
     };
 
 const _$DeviceStatusTypeEnumMap = {
