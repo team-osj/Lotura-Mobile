@@ -9,7 +9,6 @@ import 'package:lotura/core/type/locate_type.dart';
 import 'package:lotura/models/device.dart';
 import 'package:lotura/providers/device.dart';
 import 'package:lotura/providers/locate.dart';
-import 'package:lotura/providers/websocket.dart';
 import 'package:lotura/views/main/components/device_arrange_widget.dart';
 
 class LaundryStatusTabScreen extends ConsumerWidget {
@@ -60,9 +59,10 @@ class LaundryStatusTabScreen extends ConsumerWidget {
                 );
               },
               separatorBuilder: (context, index) {
-                return const SizedBox(height: 24);
+                return const SizedBox(height: 12);
               },
             ),
+            const SizedBox(height: 24),
           ],
         ),
       ),
