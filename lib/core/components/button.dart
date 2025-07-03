@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// TODO : 다른 방향으로 구현 필요함.
+/// 일반 버튼, Elevated 버튼.. etc
 class LoturaButton extends StatelessWidget {
   const LoturaButton({
     super.key,

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lotura/core/components/button.dart';
 import 'package:lotura/core/core.dart';
 
+/// TODO : BottomSheet 구조 변경 필요
 class LoturaBottomSheet extends StatelessWidget {
   const LoturaBottomSheet({
     super.key,
@@ -13,7 +14,7 @@ class LoturaBottomSheet extends StatelessWidget {
   });
 
   final String title;
-  final String caption;
+  final String? caption;
   final Widget content;
 
   @override
@@ -89,7 +90,7 @@ class _SheetDescription extends StatelessWidget {
   });
 
   final String title;
-  final String caption;
+  final String? caption;
 
   @override
   Widget build(BuildContext context) {
@@ -102,13 +103,15 @@ class _SheetDescription extends StatelessWidget {
             color: Theme.of(context).colorScheme.inverseSurface,
           ),
         ),
-        const SizedBox(height: 8),
-        Text(
-          caption,
-          style: LoturaTextStyle.body2(
-            color: Theme.of(context).colorScheme.surfaceContainer,
+        if (caption != null) ...[
+          const SizedBox(height: 8),
+          Text(
+            caption!,
+            style: LoturaTextStyle.body2(
+              color: Theme.of(context).colorScheme.surfaceContainer,
+            ),
           ),
-        ),
+        ],
       ],
     );
   }
