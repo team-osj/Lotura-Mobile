@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lotura/core/components/bottom_sheet.dart';
 import 'package:lotura/core/components/button.dart';
 import 'package:lotura/core/constants/asset.dart';
 import 'package:lotura/core/constants/text_style.dart';
 import 'package:lotura/core/type/device_arrange_type.dart';
+import 'package:lotura/core/type/device_status_type.dart';
 import 'package:lotura/models/device.dart';
 
 class DeviceArrangeRow extends StatelessWidget {
@@ -147,7 +150,11 @@ class _DeviceStatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: LoturaButton(
-        onTap: () {},
+        onTap: () => showModalBottomSheet(
+          context: context,
+          backgroundColor: Theme.of(context).colorScheme.onSurface,
+          builder: (context) => _DeviceApplyBottomSheet(device: device),
+        ),
         color: device.status.themeColorHandler(context),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         padding: const EdgeInsets.symmetric(vertical: 8),
@@ -174,6 +181,83 @@ class _DeviceStatusWidget extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// TODO : 버튼 컴포넌트 분리 필요
+class _DeviceApplyBottomSheet extends StatelessWidget {
+  const _DeviceApplyBottomSheet({required this.device});
+
+  final DeviceResponse device;
+
+  @override
+  Widget build(BuildContext context) {
+    return LoturaBottomSheet(
+      title: device.status.title(device.id, device.deviceType.text),
+      caption: device.status.caption(device.deviceType.text),
+      content: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: switch (device.status) {
+          DeviceStatusType.working => Row(
+            children: [
+              Expanded(
+                child: LoturaButton(
+                  onTap: () => context.pop(),
+                  height: 56,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  color: Theme.of(context).colorScheme.secondary,
+                  child: Center(
+                    child: Text(
+                      '취소',
+                      style: LoturaTextStyle.button1(
+                        color: Theme.of(context).colorScheme.inverseSurface,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: LoturaButton(
+                  onTap: () {},
+                  height: 56,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  color: Theme.of(context).colorScheme.primary,
+                  child: Center(
+                    child: Text(
+                      '알림 설정',
+                      style: LoturaTextStyle.button1(
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          _ => LoturaButton(
+              onTap: () => context.pop(),
+              height: 56,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              color: Theme.of(context).colorScheme.primary,
+              child: Center(
+                child: Text(
+                  '확인',
+                  style: LoturaTextStyle.button1(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                ),
+              ),
+            ),
+        },
       ),
     );
   }
