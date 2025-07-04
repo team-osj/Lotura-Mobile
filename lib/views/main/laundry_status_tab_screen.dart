@@ -25,7 +25,7 @@ class LaundryStatusTabScreen extends ConsumerWidget {
     }
 
     if (roomLocateAsyncValue is AsyncError || deviceAsyncValue is AsyncError) {
-      return const EmptyWidget(text: '서버와의 연결이 해제되었습니다.');
+      return const EmptyWidget(text: '네트워크 연결 오류');
     }
 
     final locateArrange = roomLocateAsyncValue.value!.locateArrange;
