@@ -195,8 +195,8 @@ class _DeviceApplyBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoturaBottomSheet(
-      title: device.status.title(device.id, device.deviceType.text),
-      caption: device.status.caption(device.deviceType.text),
+      title: device.status.title(device),
+      caption: device.status.caption(device),
       content: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: switch (device.status) {

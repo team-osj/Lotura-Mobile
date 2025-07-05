@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:lotura/models/device.dart';
 
 enum DeviceStatusType {
   @JsonValue(0)
@@ -27,29 +28,32 @@ enum DeviceStatusType {
     }
   }
 
-  String title(int id, String device) {
+  String title(DeviceResponse device) {
+    final id = device.id;
+    final deviceName = device.deviceType.text;
     switch (this) {
       case DeviceStatusType.working:
-        return '$id번 $device를\n알림 설정할까요?';
+        return '$id번 $deviceName를\n알림 설정할까요?';
       case DeviceStatusType.available:
-        return '$id번 $device는\n현재 사용할 수 있어요!';
+        return '$id번 $deviceName는\n현재 사용할 수 있어요!';
       case DeviceStatusType.disconnect:
-        return '$id번 $device는\n연결이 끊겨서 사용할 수 없어요.';
+        return '$id번 $deviceName는\n연결이 끊겨서 사용할 수 없어요.';
       case DeviceStatusType.breakdown:
-        return '$id번 $device는\n고장으로 인해 사용할 수 없어요.';
+        return '$id번 $deviceName는\n고장으로 인해 사용할 수 없어요.';
     }
   }
 
-  String? caption(String device) {
+  String? caption(DeviceResponse device) {
+    final deviceName = device.deviceType.text;
     switch (this) {
       case DeviceStatusType.working:
-        return '$device가 종료되면 알림을 드릴게요.';
+        return '$deviceName가 종료되면 알림을 드릴게요.';
       case DeviceStatusType.available:
         return null;
       case DeviceStatusType.disconnect:
-        return '다른 $device를 사용해주세요.\n빠른 시일 내에 수리해 사용 가능하도록 하겠습니다.';
+        return '다른 $deviceName를 사용해주세요.\n빠른 시일 내에 수리해 사용 가능하도록 하겠습니다.';
       case DeviceStatusType.breakdown:
-        return '다른 $device를 사용해주세요.\n빠른 시일 내에 수리해 사용 가능하도록 하겠습니다.';
+        return '다른 $deviceName를 사용해주세요.\n빠른 시일 내에 수리해 사용 가능하도록 하겠습니다.';
     }
   }
 
