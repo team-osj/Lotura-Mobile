@@ -34,32 +34,35 @@ class _NoticeScreen extends ConsumerWidget {
     final noticeListAsyncValue = ref.watch(noticeListProvider);
     return noticeListAsyncValue.when(
       data: (data) => data.isNotEmpty
-          ? LoturaScrollBar(
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Image.asset(
-                      Assets.banner(Theme.of(context).brightness),
+          ? RefreshIndicator.adaptive(
+            onRefresh: () async => ref.invalidate(noticeListProvider),
+            child: LoturaScrollBar(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Image.asset(
+                        Assets.banner(Theme.of(context).brightness),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 12),
-                  ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: data.length,
-                    itemBuilder: (context, index) {
-                      final notice = data[index];
-                      return _NoticeItem(notice: notice);
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(height: 4);
-                    },
-                  ),
-                ],
+                    const SizedBox(height: 12),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        final notice = data[index];
+                        return _NoticeItem(notice: notice);
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(height: 4);
+                      },
+                    ),
+                  ],
+                ),
               ),
-            )
+          )
           : const EmptyWidget(text: '등록된 공지사항이 없습니다.'),
       error: (_, __) => const EmptyWidget(text: '에러가 발생했습니다.'),
       loading: () => const LoturaProgressIndicator(),
