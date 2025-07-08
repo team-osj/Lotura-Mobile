@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/core.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
@@ -17,7 +17,7 @@ class SettingOptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoturaButton(
+    return LoturaGesture(
       onTap: onTap,
       child: Container(
         height: 56,

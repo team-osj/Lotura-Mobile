@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lotura/core/components/app_bar.dart';
 import 'package:lotura/core/components/bottom_sheet.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/components/error_icon.dart';
 import 'package:lotura/core/components/progress_indicator.dart';
 import 'package:lotura/core/core.dart';
@@ -103,7 +103,7 @@ class _LocateSettingBottomSheet extends ConsumerWidget {
         data: (data) => Column(
           children: LocateType.values
               .map(
-                (e) => LoturaButton(
+                (e) => LoturaGesture(
                   onTap: () async {
                     if (data != e) {
                       final updated = await ref
@@ -151,7 +151,7 @@ class _ModeSettingBottomSheet extends ConsumerWidget {
         data: (data) => Column(
           children: ThemeType.values
               .map(
-                (e) => LoturaButton(
+                (e) => LoturaGesture(
                   onTap: () async {
                     if (data != e) {
                       final updated = await ref

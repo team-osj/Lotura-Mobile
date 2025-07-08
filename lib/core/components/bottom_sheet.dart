@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/core.dart';
 
 /// TODO : BottomSheet 구조 변경 필요
@@ -67,7 +67,7 @@ class _RemoveSheetIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoturaButton(
+    return LoturaGesture(
       onTap: () => context.pop(),
       shape: const CircleBorder(),
       child: SvgPicture.asset(
