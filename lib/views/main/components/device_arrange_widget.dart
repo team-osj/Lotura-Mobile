@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lotura/core/components/bottom_sheet.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/bottom_sheet_button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/constants/asset.dart';
 import 'package:lotura/core/constants/text_style.dart';
 import 'package:lotura/core/type/device_arrange_type.dart';
@@ -149,7 +150,7 @@ class _DeviceStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: LoturaButton(
+      child: LoturaGesture(
         onTap: () => showModalBottomSheet(
           context: context,
           backgroundColor: Theme.of(context).colorScheme.onSurface,
@@ -186,7 +187,6 @@ class _DeviceStatusWidget extends StatelessWidget {
   }
 }
 
-/// TODO : 버튼 컴포넌트 분리 필요
 class _DeviceApplyBottomSheet extends StatelessWidget {
   const _DeviceApplyBottomSheet({required this.device});
 
@@ -202,61 +202,45 @@ class _DeviceApplyBottomSheet extends StatelessWidget {
         child: switch (device.status) {
           DeviceStatusType.working => Row(
             children: [
-              Expanded(
-                child: LoturaButton(
-                  onTap: () => context.pop(),
-                  height: 56,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  color: Theme.of(context).colorScheme.secondary,
-                  child: Center(
-                    child: Text(
-                      '취소',
-                      style: LoturaTextStyle.button1(
-                        color: Theme.of(context).colorScheme.inverseSurface,
-                      ),
+              BottomSheetButton(
+                onTap: () => context.pop(),
+                color: Theme.of(context).colorScheme.secondary,
+                child: Center(
+                  child: Text(
+                    '취소',
+                    style: LoturaTextStyle.button1(
+                      color: Theme.of(context).colorScheme.inverseSurface,
                     ),
                   ),
                 ),
               ),
               const SizedBox(width: 14),
-              Expanded(
-                child: LoturaButton(
-                  onTap: () {},
-                  height: 56,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  color: Theme.of(context).colorScheme.primary,
-                  child: Center(
-                    child: Text(
-                      '알림 설정',
-                      style: LoturaTextStyle.button1(
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
+              BottomSheetButton(
+                onTap: () => context.pop(),
+                color: Theme.of(context).colorScheme.primary,
+                child: Center(
+                  child: Text(
+                    '알림 설정',
+                    style: LoturaTextStyle.button1(
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          _ => LoturaButton(
-              onTap: () => context.pop(),
-              height: 56,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              color: Theme.of(context).colorScheme.primary,
-              child: Center(
-                child: Text(
-                  '확인',
-                  style: LoturaTextStyle.button1(
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
+          _ => BottomSheetButton(
+            onTap: () => context.pop(),
+            color: Theme.of(context).colorScheme.primary,
+            child: Center(
+              child: Text(
+                '확인',
+                style: LoturaTextStyle.button1(
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ),
+          ),
         },
       ),
     );
