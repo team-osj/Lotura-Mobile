@@ -3,6 +3,6 @@ import 'package:lotura/core/network/secret.dart';
 
 final Dio dio = Dio(
   BaseOptions(
-    baseUrl: baseUrl,
+    baseUrl: httpUrl,
   ),
 );
