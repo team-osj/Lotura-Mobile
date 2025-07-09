@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lotura/core/components/app_bar.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/core.dart';
 import 'package:lotura/core/layout/layout.dart';
 import 'package:lotura/core/type/view_option_type.dart';
@@ -88,7 +88,7 @@ class _ViewOptionSwitch extends ConsumerWidget {
                     child: SizedBox(
                       width: itemWidth,
                       height: itemHeight,
-                      child: LoturaButton(
+                      child: LoturaGesture(
                         onTap: () {
                           if (viewOption.index != e.index) {
                             ref.read(viewOptionManagerProvider.notifier).changeOption(e);
@@ -136,7 +136,7 @@ class _ViewOptionAppBar extends StatelessWidget implements PreferredSizeWidget {
                 const _ViewOptionSwitch(),
                 Row(
                   children: [
-                    LoturaButton(
+                    LoturaGesture(
                       onTap: () => pushNoticePage(context),
                       shape: const CircleBorder(),
                       child: Icon(
@@ -146,7 +146,7 @@ class _ViewOptionAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                     const SizedBox(width: 12),
-                    LoturaButton(
+                    LoturaGesture(
                       onTap: () => pushSettingPage(context),
                       shape: const CircleBorder(),
                       child: Icon(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/components/empty.dart';
 import 'package:lotura/core/components/progress_indicator.dart';
 import 'package:lotura/core/components/scroll_bar.dart';
@@ -120,7 +120,7 @@ class _RoomSelectRadioButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final curLocate = ref.watch(roomManagerProvider).value;
-    return LoturaButton(
+    return LoturaGesture(
       onTap: () {
         if (curLocate != type) {
           ref.read(roomManagerProvider.notifier).moveRoomLocate(type);

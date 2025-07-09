@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lotura/core/components/app_bar.dart';
-import 'package:lotura/core/components/button.dart';
+import 'package:lotura/core/components/buttons/gesture.dart';
 import 'package:lotura/core/components/empty.dart';
 import 'package:lotura/core/components/progress_indicator.dart';
 import 'package:lotura/core/components/scroll_bar.dart';
@@ -79,7 +79,7 @@ class _NoticeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoturaButton(
+    return LoturaGesture(
       onTap: () => pushNoticeDetailPage(context, id: notice.id),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
