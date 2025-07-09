@@ -25,18 +25,17 @@ class BottomSheetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: LoturaGesture(
-        onTap: onTap,
-        height: height,
-        width: width,
-        color: color,
-        shape: RoundedRectangleBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(8),
-        ),
-        padding: padding,
-        child: child,
+    final button = LoturaGesture(
+      onTap: onTap,
+      height: height,
+      width: width,
+      color: color,
+      shape: RoundedRectangleBorder(
+        borderRadius: borderRadius ?? BorderRadius.circular(8),
       ),
+      padding: padding,
+      child: child,
     );
+    return expand ? Expanded(child: button) : button;
   }
 }

@@ -205,6 +205,7 @@ class _DeviceApplyBottomSheet extends StatelessWidget {
               BottomSheetButton(
                 onTap: () => context.pop(),
                 color: Theme.of(context).colorScheme.secondary,
+                expand: true,
                 child: Center(
                   child: Text(
                     '취소',
@@ -218,6 +219,7 @@ class _DeviceApplyBottomSheet extends StatelessWidget {
               BottomSheetButton(
                 onTap: () => context.pop(),
                 color: Theme.of(context).colorScheme.primary,
+                expand: true,
                 child: Center(
                   child: Text(
                     '알림 설정',
