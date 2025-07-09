@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../providers/device.dart';
+part of '../../providers/push_alert.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$deviceManagerHash() => r'b6019e70add5c1aaf994a16035392671d053f374';
+String _$pushAlertManagerHash() => r'59f85a97485610ec10151301d6d1705cc9683d23';
 
-/// See also [DeviceManager].
-@ProviderFor(DeviceManager)
-final deviceManagerProvider =
-    AsyncNotifierProvider<DeviceManager, List<DeviceResponse>>.internal(
-  DeviceManager.new,
-  name: r'deviceManagerProvider',
+/// See also [PushAlertManager].
+@ProviderFor(PushAlertManager)
+final pushAlertManagerProvider = AutoDisposeAsyncNotifierProvider<
+    PushAlertManager, List<PushAlertResponse>>.internal(
+  PushAlertManager.new,
+  name: r'pushAlertManagerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$deviceManagerHash,
+      : _$pushAlertManagerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$DeviceManager = AsyncNotifier<List<DeviceResponse>>;
+typedef _$PushAlertManager = AutoDisposeAsyncNotifier<List<PushAlertResponse>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
