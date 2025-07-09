@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBm-tW8I1d46uqiGIYOSJKBMsRHavUjnMY',
-    appId: '1:117834490208:android:9f741d7ffadb2e8e72fe05',
+    appId: '1:117834490208:android:65ec516a5d363b2a72fe05',
     messagingSenderId: '117834490208',
     projectId: 'teamosj-lotura',
     storageBucket: 'teamosj-lotura.firebasestorage.app',
@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'teamosj-lotura.firebasestorage.app',
     iosBundleId: 'com.teamosj.lotura',
   );
+
 }
