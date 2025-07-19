@@ -55,5 +55,7 @@ List<Map<DeviceArrangeType, List<int>>> maleDormitoryLocateDummy = [
 ];
 
 List<Map<DeviceArrangeType, List<int>>> femaleDormitoryLocateDummy = [
-
+  {
+    DeviceArrangeType.leftDryer: [1, 2],
+  },
 ];
