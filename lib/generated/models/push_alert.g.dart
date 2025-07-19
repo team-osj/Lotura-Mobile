@@ -10,21 +10,19 @@ _$PushAlertResponseImpl _$$PushAlertResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$PushAlertResponseImpl(
       deviceId: (json['device_id'] as num).toInt(),
-      status: $enumDecode(_$DeviceStatusTypeEnumMap, json['state']),
+      deviceType: $enumDecode(_$DeviceTypeEnumMap, json['device_type']),
     );
 
 Map<String, dynamic> _$$PushAlertResponseImplToJson(
         _$PushAlertResponseImpl instance) =>
     <String, dynamic>{
       'device_id': instance.deviceId,
-      'state': _$DeviceStatusTypeEnumMap[instance.status]!,
+      'device_type': _$DeviceTypeEnumMap[instance.deviceType]!,
     };
 
-const _$DeviceStatusTypeEnumMap = {
-  DeviceStatusType.working: 0,
-  DeviceStatusType.available: 1,
-  DeviceStatusType.disconnect: 2,
-  DeviceStatusType.breakdown: 3,
+const _$DeviceTypeEnumMap = {
+  DeviceType.washer: 'WASH',
+  DeviceType.dryer: 'DRY',
 };
 
 Map<String, dynamic> _$$PushAlertRequestImplToJson(

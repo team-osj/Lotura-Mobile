@@ -21,8 +21,7 @@ PushAlertResponse _$PushAlertResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PushAlertResponse {
   int get deviceId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'state')
-  DeviceStatusType get status => throw _privateConstructorUsedError;
+  DeviceType get deviceType => throw _privateConstructorUsedError;
 
   /// Serializes this PushAlertResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +39,7 @@ abstract class $PushAlertResponseCopyWith<$Res> {
           PushAlertResponse value, $Res Function(PushAlertResponse) then) =
       _$PushAlertResponseCopyWithImpl<$Res, PushAlertResponse>;
   @useResult
-  $Res call({int deviceId, @JsonKey(name: 'state') DeviceStatusType status});
+  $Res call({int deviceId, DeviceType deviceType});
 }
 
 /// @nodoc
@@ -59,17 +58,17 @@ class _$PushAlertResponseCopyWithImpl<$Res, $Val extends PushAlertResponse>
   @override
   $Res call({
     Object? deviceId = null,
-    Object? status = null,
+    Object? deviceType = null,
   }) {
     return _then(_value.copyWith(
       deviceId: null == deviceId
           ? _value.deviceId
           : deviceId // ignore: cast_nullable_to_non_nullable
               as int,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as DeviceStatusType,
+      deviceType: null == deviceType
+          ? _value.deviceType
+          : deviceType // ignore: cast_nullable_to_non_nullable
+              as DeviceType,
     ) as $Val);
   }
 }
@@ -82,7 +81,7 @@ abstract class _$$PushAlertResponseImplCopyWith<$Res>
       __$$PushAlertResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int deviceId, @JsonKey(name: 'state') DeviceStatusType status});
+  $Res call({int deviceId, DeviceType deviceType});
 }
 
 /// @nodoc
@@ -99,17 +98,17 @@ class __$$PushAlertResponseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? deviceId = null,
-    Object? status = null,
+    Object? deviceType = null,
   }) {
     return _then(_$PushAlertResponseImpl(
       deviceId: null == deviceId
           ? _value.deviceId
           : deviceId // ignore: cast_nullable_to_non_nullable
               as int,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as DeviceStatusType,
+      deviceType: null == deviceType
+          ? _value.deviceType
+          : deviceType // ignore: cast_nullable_to_non_nullable
+              as DeviceType,
     ));
   }
 }
@@ -118,7 +117,7 @@ class __$$PushAlertResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PushAlertResponseImpl implements _PushAlertResponse {
   const _$PushAlertResponseImpl(
-      {required this.deviceId, @JsonKey(name: 'state') required this.status});
+      {required this.deviceId, required this.deviceType});
 
   factory _$PushAlertResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$PushAlertResponseImplFromJson(json);
@@ -126,12 +125,11 @@ class _$PushAlertResponseImpl implements _PushAlertResponse {
   @override
   final int deviceId;
   @override
-  @JsonKey(name: 'state')
-  final DeviceStatusType status;
+  final DeviceType deviceType;
 
   @override
   String toString() {
-    return 'PushAlertResponse(deviceId: $deviceId, status: $status)';
+    return 'PushAlertResponse(deviceId: $deviceId, deviceType: $deviceType)';
   }
 
   @override
@@ -141,12 +139,13 @@ class _$PushAlertResponseImpl implements _PushAlertResponse {
             other is _$PushAlertResponseImpl &&
             (identical(other.deviceId, deviceId) ||
                 other.deviceId == deviceId) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.deviceType, deviceType) ||
+                other.deviceType == deviceType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, deviceId, status);
+  int get hashCode => Object.hash(runtimeType, deviceId, deviceType);
 
   /// Create a copy of PushAlertResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -167,9 +166,8 @@ class _$PushAlertResponseImpl implements _PushAlertResponse {
 
 abstract class _PushAlertResponse implements PushAlertResponse {
   const factory _PushAlertResponse(
-          {required final int deviceId,
-          @JsonKey(name: 'state') required final DeviceStatusType status}) =
-      _$PushAlertResponseImpl;
+      {required final int deviceId,
+      required final DeviceType deviceType}) = _$PushAlertResponseImpl;
 
   factory _PushAlertResponse.fromJson(Map<String, dynamic> json) =
       _$PushAlertResponseImpl.fromJson;
@@ -177,8 +175,7 @@ abstract class _PushAlertResponse implements PushAlertResponse {
   @override
   int get deviceId;
   @override
-  @JsonKey(name: 'state')
-  DeviceStatusType get status;
+  DeviceType get deviceType;
 
   /// Create a copy of PushAlertResponse
   /// with the given fields replaced by the non-null parameter values.
