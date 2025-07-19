@@ -9,6 +9,13 @@ class EmptyWidget extends StatelessWidget {
     this.textStyle,
   });
 
+  const EmptyWidget.network({
+    super.key,
+    this.child,
+    this.text = '네트워크 연결 오류',
+    this.textStyle,
+  });
+
   final Widget? child;
   final String? text;
   final TextStyle? textStyle;
