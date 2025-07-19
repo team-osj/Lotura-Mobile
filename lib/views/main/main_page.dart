@@ -24,6 +24,7 @@ class _MainPageState extends State<MainPage>
     return const LoturaLayout(
       appBar: _ViewOptionAppBar(),
       body: SafeArea(
+        bottom: false,
         child: _PageView(),
       ),
     );

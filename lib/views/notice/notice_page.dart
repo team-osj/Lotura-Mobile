@@ -20,6 +20,7 @@ class NoticePage extends StatelessWidget {
     return LoturaLayout(
       appBar: LoturaAppBar.title(context: context, text: '공지사항'),
       body: const SafeArea(
+        bottom: false,
         child: _NoticeScreen(),
       ),
     );
